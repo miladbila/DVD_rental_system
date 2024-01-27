@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
-
 
 <AnchorPane prefHeight="669.0" prefWidth="571.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dvd_rental.AdminActiveRents">
    <children>
@@ -16,11 +14,6 @@
          </font>
       </Label>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff05" height="636.0" layoutX="14.0" layoutY="18.0" stroke="BLACK" strokeType="INSIDE" width="542.0" />
-      <TableView layoutX="56.0" layoutY="154.0" prefHeight="398.0" prefWidth="455.0">
-        <columns>
-          <TableColumn prefWidth="75.0" text="C1" />
-          <TableColumn prefWidth="75.0" text="C2" />
-        </columns>
-      </TableView>
+      <TableView fx:id="tableview" layoutX="56.0" layoutY="154.0" prefHeight="398.0" prefWidth="455.0" />
    </children>
 </AnchorPane>
