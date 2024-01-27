@@ -58,11 +58,13 @@ public class HelloController {
         } else {
             ResultSet result;
             try {
-                result = Database.sqlCommand(String.format("select staff_id from staff where username = \"%s\" and password = \"%s\"", txt_AccountName.getText(), txt_Password.getText()));
+                result = Database.sqlCommand(String.format("select staff_id, first_name, last_name from staff where username = \"%s\" and password = \"%s\"", txt_AccountName.getText(), txt_Password.getText()));
                 if (!result.next())
                     alert.showAndWait();
                 else {
                     AdminController.staffId = result.getString("staff_id");
+                    AdminController.firstName = result.getString("first_name");
+                    AdminController.lastName = result.getString("last_name");
                     Parent parent;
                     try {
                         parent = FXMLLoader.load(HelloApplication.class.getResource("admin.fxml"));
