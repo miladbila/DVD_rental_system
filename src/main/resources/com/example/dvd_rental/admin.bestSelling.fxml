@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dvd_rental.AdminBestSelling">
+   <children>
+      <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="700.0" prefWidth="600.0">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="669.0" layoutX="7.0" layoutY="16.0" stroke="BLACK" strokeType="INSIDE" width="571.0" />
+            <Label fx:id="welcome_label" layoutX="52.0" layoutY="51.0" text="BestSelling">
+               <font>
+                  <Font size="27.0" />
+               </font>
+            </Label>
+            <TableView layoutX="67.0" layoutY="150.0" prefHeight="449.0" prefWidth="466.0">
+              <columns>
+                <TableColumn prefWidth="75.0" text="C1" />
+                <TableColumn prefWidth="75.0" text="C2" />
+              </columns>
+            </TableView>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
