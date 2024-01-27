@@ -39,4 +39,19 @@ public class AdminController {
         stage.show();
     }
 
+    @FXML
+    void onPayment(ActionEvent event){
+        AdminPaymentinfo.staffId = staffId;
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("admin.paymentinfo.fxml"));
+        Parent root1 = null;
+        try {
+            root1 = (Parent) fxmlLoader.load();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        Stage stage = new Stage();
+
+        stage.setScene(new Scene(root1));
+        stage.show();
+    }
 }
