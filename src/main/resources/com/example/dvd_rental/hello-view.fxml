@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="700.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dvd_rental.HelloController">
+   <children>
+
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="679.0" layoutX="9.0" layoutY="11.0" stroke="BLACK" strokeType="INSIDE" width="581.0" />
+      <TextField fx:id="txt_AccountName" layoutX="175.0" layoutY="291.0" prefHeight="34.0" prefWidth="250.0" promptText="User Name" />
+      <PasswordField fx:id="txt_Password" layoutX="175.0" layoutY="334.0" prefHeight="34.0" prefWidth="250.0" promptText="Password" />
+      <Button layoutX="175.0" layoutY="403.0" mnemonicParsing="false" onAction="#clickLogin" onMouseClicked="#clickLogin" prefHeight="34.0" prefWidth="250.0" style="-fx-background-color: blue;" text="Log In" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Label layoutX="175.0" layoutY="489.0" prefHeight="34.0" prefWidth="171.0" text="-Don't have an account ?">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Button layoutX="364.0" layoutY="493.0" mnemonicParsing="false" onAction="#clickSignUp" onMouseClicked="#clickSignUp" text="Sign Up" textFill="#250fea">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Label layoutX="246.0" layoutY="92.0" text="Welcome">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Label>
+      <RadioButton fx:id="adminRadio" layoutX="204.0" layoutY="260.0" mnemonicParsing="false" onAction="#onAdminRadio" text="Admin" />
+      <RadioButton fx:id="customerRadio" layoutX="328.0" layoutY="260.0" mnemonicParsing="false" onAction="#onCustomerRadio" text="Customer" />
+      <Label layoutX="259.0" layoutY="220.0" text="select your role" />
+   </children>
+</AnchorPane>
