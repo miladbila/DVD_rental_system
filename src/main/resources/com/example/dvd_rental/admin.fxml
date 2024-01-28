@@ -14,13 +14,13 @@
          </font>
       </Label>
       <Button layoutX="52.0" layoutY="149.0" mnemonicParsing="false" onAction="#onCustomersInfo" prefHeight="25.0" prefWidth="115.0" text="customers info" />
-      <Button layoutX="52.0" layoutY="194.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="115.0" text="Film info" />
-      <Button layoutX="52.0" layoutY="240.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="115.0" text="Active rents" />
-      <Button layoutX="52.0" layoutY="286.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="115.0" text="Reserve requests" />
-      <Button layoutX="54.0" layoutY="528.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="115.0" text="Bestselling" />
+      <Button layoutX="52.0" layoutY="194.0" mnemonicParsing="false" onAction="#onFilmInfo" prefHeight="25.0" prefWidth="115.0" text="Film info" />
+      <Button layoutX="52.0" layoutY="240.0" mnemonicParsing="false" onAction="#onActiveRent" prefHeight="25.0" prefWidth="115.0" text="Active rents" />
+      <Button layoutX="52.0" layoutY="286.0" mnemonicParsing="false" onAction="#onReserverequests" prefHeight="25.0" prefWidth="115.0" text="Reserve requests" />
+      <Button layoutX="54.0" layoutY="528.0" mnemonicParsing="false" onAction="#onBestselling" prefHeight="25.0" prefWidth="115.0" text="Bestselling" />
       <Button layoutX="52.0" layoutY="480.0" mnemonicParsing="false" onAction="#onPayment" prefHeight="25.0" prefWidth="115.0" text="Payment info" />
-      <Button layoutX="50.0" layoutY="328.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="115.0" text="Store info" />
-      <Button layoutX="51.0" layoutY="377.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="115.0" text="Film lists" />
-      <Button layoutX="51.0" layoutY="429.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="115.0" text="Search in films" />
+      <Button layoutX="50.0" layoutY="328.0" mnemonicParsing="false" onAction="#onStoreinfo" prefHeight="25.0" prefWidth="115.0" text="Store info" />
+      <Button layoutX="51.0" layoutY="377.0" mnemonicParsing="false" onAction="#onFilmlists" prefHeight="25.0" prefWidth="115.0" text="Film lists" />
+      <Button layoutX="51.0" layoutY="429.0" mnemonicParsing="false" onAction="#onSearchinfilms" prefHeight="25.0" prefWidth="115.0" text="Search in films" />
    </children>
 </AnchorPane>
