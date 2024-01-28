@@ -29,18 +29,8 @@ public class adminBestSelling {
         public void initialize() {
             ResultSet rs = null;
             try {
-                rs = Database.sqlCommand(String.format("select store_id from store where manager_staff_id = %s", staffId));
-                ArrayList<String> storeIds = new ArrayList<>();
-                while (rs.next()) {
-                    for (int i = 1; i <= rs.getMetaData().getColumnCount(); i++) {
-                        storeIds.add(rs.getString(i));
-                    }
-                }
                 ObservableList<ObservableList> data = FXCollections.observableArrayList();
-                if (storeIds.size() == 1)
-                    rs = Database.sqlCommand(String.format("select distinct customer.customer_id, first_name, last_name from rental, customer where rental.customer_id = customer.customer_id and store_id = %s", storeIds.get(0)));
-                else
-                    rs = Database.sqlCommand(String.format("select distinct customer.customer_id, first_name, last_name from rental, customer where rental.customer_id = customer.customer_id and (store_id = %s or store_id = %s)", storeIds.get(0), storeIds.get(1)));
+                rs = Database.sqlCommand("select * from film natural join fim_category as X  natural join category group by category_id having rating = (select max(rating) from film natural join category where category_id = X.category_id)");
                 for (int i = 0; i < rs.getMetaData().getColumnCount(); i++) {
                     final int j = i;
                     TableColumn col = new TableColumn(rs.getMetaData().getColumnName(i + 1));
