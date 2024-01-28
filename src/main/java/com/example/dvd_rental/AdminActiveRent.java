@@ -1,4 +1,5 @@
 package com.example.dvd_rental;
+
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -10,28 +11,19 @@ import javafx.util.Callback;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
-public class adminActiveRent {
+public class AdminActiveRent {
 
     static String staffId;
 
-        @FXML
-        private TableView tableview;
+    @FXML
+    private TableView tableview;
+
     public void initialize() {
         ResultSet rs = null;
         try {
-            rs = Database.sqlCommand(String.format("select store_id from store where manager_staff_id = %s", staffId));
-            ArrayList<String> storeIds = new ArrayList<>();
-            while (rs.next()) {
-                for (int i = 1; i <= rs.getMetaData().getColumnCount(); i++) {
-                    storeIds.add(rs.getString(i));
-                }
-            }
             ObservableList<ObservableList> data = FXCollections.observableArrayList();
-            if (storeIds.size() == 1)
-                rs = Database.sqlCommand(String.format("select * from rental  where  staff = %s and return_date = null ",staffId ));
-                rs = Database.sqlCommand(String.format("select * from rental  where staff = %s and return_date = null ",staffId ));
+            rs = Database.sqlCommand(String.format("select * from rental  where staff_id = %s and return_date = null", staffId));
             for (int i = 0; i < rs.getMetaData().getColumnCount(); i++) {
                 final int j = i;
                 TableColumn col = new TableColumn(rs.getMetaData().getColumnName(i + 1));
