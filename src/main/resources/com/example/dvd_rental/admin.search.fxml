@@ -29,7 +29,6 @@
                   <Button layoutX="142.0" layoutY="152.0" mnemonicParsing="false" onAction="#onGenre" prefHeight="25.0" prefWidth="90.0" text="Genre" />
                   <Label layoutX="50.0" layoutY="200.0" prefHeight="31.0" prefWidth="146.0" text="please enter the text:" />
                   <TextField fx:id="txtId" layoutX="197.0" layoutY="244.0" prefHeight="31.0" prefWidth="193.0" />
-                  <TableView fx:id="tableview1" layoutX="75.0" layoutY="371.0" prefHeight="300.0" prefWidth="456.0" />
                </children>
             </AnchorPane>
          </children>
