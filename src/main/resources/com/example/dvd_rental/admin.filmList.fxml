@@ -17,7 +17,20 @@
                         <Font size="27.0" />
                      </font>
                   </Label>
-                  <TableView fx:id="tableview" layoutX="67.0" layoutY="150.0" prefHeight="449.0" prefWidth="466.0" />
+                  <TableView fx:id="tableview" layoutX="67.0" layoutY="150.0" prefHeight="145.0" prefWidth="466.0" />
+                  <Label layoutX="67.0" layoutY="111.0" text="category list">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="67.0" layoutY="351.0" text="select categoty to show films sorted by rate('all' for all categories)">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="category_text" layoutX="67.0" layoutY="387.0" />
+                  <Button layoutX="67.0" layoutY="428.0" mnemonicParsing="false" onAction="#onSubmit" text="submit" />
+                  <TableView fx:id="tableview1" layoutX="67.0" layoutY="486.0" prefHeight="145.0" prefWidth="466.0" />
                </children>
             </AnchorPane>
          </children>

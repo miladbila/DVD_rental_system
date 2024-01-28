@@ -40,9 +40,9 @@ import java.util.ArrayList;
             }
             ObservableList<ObservableList> data = FXCollections.observableArrayList();
             if (storeIds.size() == 1)
-                rs = Database.sqlCommand(String.format("select distinct film.film_id , title , release_year , length from film , film_actor , actor , inventory , store where film.film_id = film_actor.film_id and film_actor.actor_id = actor.actor_id film.film_id = inventory.film_id and inventory.store_id = store.store_id and store_id = %s and actor.first_name = %s", storeIds.get(0), txtId.getText()));
+                rs = Database.sqlCommand(String.format("select distinct film.film_id , title , release_year , length from film , film_actor , actor , inventory , store where film.film_id = film_actor.film_id and film_actor.actor_id = actor.actor_id film.film_id = inventory.film_id and inventory.store_id = store.store_id and inventory.store_id = %s and actor.first_name = \"%s\"", storeIds.get(0), txtId.getText()));
             else
-                rs = Database.sqlCommand(String.format("select distinct film.film_id , title , release_year , length from film , film_actor , actor , inventory , store where film.film_id = film_actor.film_id and film_actor.actor_id = actor.actor_id film.film_id = inventory.film_id and inventory.store_id = store.store_id and (store_id = %s or store_id = %s) and actor.first_name = %s", storeIds.get(0), storeIds.get(1), txtId.getText()));
+                rs = Database.sqlCommand(String.format("select distinct film.film_id , title , release_year , length from film , film_actor , actor , inventory , store where film.film_id = film_actor.film_id and film_actor.actor_id = actor.actor_id film.film_id = inventory.film_id and inventory.store_id = store.store_id and (inventory.store_id = %s or inventory.store_id = %s) and actor.first_name = \"%s\"", storeIds.get(0), storeIds.get(1), txtId.getText()));
             for (int i = 0; i < rs.getMetaData().getColumnCount(); i++) {
                 final int j = i;
                 TableColumn col = new TableColumn(rs.getMetaData().getColumnName(i + 1));
@@ -75,9 +75,9 @@ import java.util.ArrayList;
             }
             ObservableList<ObservableList> data = FXCollections.observableArrayList();
             if (storeIds.size() == 1)
-                rs = Database.sqlCommand(String.format("select distinct film.film_id , title , release_year , length from film , film_category , category , inventory , store where film.film_id = film_category.film_id and film_category.category_id = category.category_id ,  film.film_id = inventory.film_id and inventory.store_id = store.store_id and store_id = %s and category.name = %s", storeIds.get(0), txtId.getText()));
+                rs = Database.sqlCommand(String.format("select distinct film.film_id , title , release_year , length from film , film_category , category , inventory , store where film.film_id = film_category.film_id and film_category.category_id = category.category_id and film.film_id = inventory.film_id and inventory.store_id = store.store_id and inventory.store_id = %s and category.name = \"%s\"", storeIds.get(0), txtId.getText()));
             else
-                rs = Database.sqlCommand(String.format("select distinct film.film_id , title , release_year , length from film , film_category , category , inventory , store where film.film_id = film_category.film_id and film_category.category_id = category.category_id ,  film.film_id = inventory.film_id and inventory.store_id = store.store_id and (store_id = %s or store_id = %s) and category.name = %s", storeIds.get(0), storeIds.get(1), txtId.getText()));
+                rs = Database.sqlCommand(String.format("select distinct film.film_id , title , release_year , length from film , film_category , category , inventory , store where film.film_id = film_category.film_id and film_category.category_id = category.category_id and film.film_id = inventory.film_id and inventory.store_id = store.store_id and (inventory.store_id = %s or inventory.store_id = %s) and category.name = \"%s\"", storeIds.get(0), storeIds.get(1), txtId.getText()));
             for (int i = 0; i < rs.getMetaData().getColumnCount(); i++) {
                 final int j = i;
                 TableColumn col = new TableColumn(rs.getMetaData().getColumnName(i + 1));
@@ -110,9 +110,9 @@ import java.util.ArrayList;
             }
             ObservableList<ObservableList> data = FXCollections.observableArrayList();
             if (storeIds.size() == 1)
-                rs = Database.sqlCommand(String.format("select distinct film.film_id , title , release_year , length from film , language , inventory , store where film.language_id= language.language_id and  film.film_id = inventory.film_id and inventory.store_id = store.store_id and store_id = %s and language.name = %s", storeIds.get(0), txtId.getText()));
+                rs = Database.sqlCommand(String.format("select distinct film.film_id , title , release_year , length from film , language , inventory , store where film.language_id= language.language_id and  film.film_id = inventory.film_id and inventory.store_id = store.store_id and inventory.store_id = %s and language.name = \"%s\"", storeIds.get(0), txtId.getText()));
             else
-                rs = Database.sqlCommand(String.format("select distinct film.film_id , title , release_year , length from film , language , inventory , store where film.language_id= language.language_id and  film.film_id = inventory.film_id and inventory.store_id = store.store_id and (store_id = %s or store_id = %s) and language.name = %s", storeIds.get(0), storeIds.get(1), txtId.getText()));
+                rs = Database.sqlCommand(String.format("select distinct film.film_id , title , release_year , length from film , language , inventory , store where film.language_id= language.language_id and  film.film_id = inventory.film_id and inventory.store_id = store.store_id and (inventory.store_id = %s or inventory.store_id = %s) and language.name = \"%s\"", storeIds.get(0), storeIds.get(1), txtId.getText()));
             for (int i = 0; i < rs.getMetaData().getColumnCount(); i++) {
                 final int j = i;
                 TableColumn col = new TableColumn(rs.getMetaData().getColumnName(i + 1));
@@ -145,9 +145,9 @@ import java.util.ArrayList;
             }
             ObservableList<ObservableList> data = FXCollections.observableArrayList();
             if (storeIds.size() == 1)
-                rs = Database.sqlCommand(String.format("select distinct film.film_id , title , release_year , length from film  , inventory , store where  film.film_id = inventory.film_id and inventory.store_id = store.store_id and store_id = %s and film.title = %s", storeIds.get(0), txtId.getText()));
+                rs = Database.sqlCommand(String.format("select distinct film.film_id , title , release_year , length from film  , inventory , store where  film.film_id = inventory.film_id and inventory.store_id = store.store_id and inventory.store_id = %s and film.title = \"%s\"", storeIds.get(0), txtId.getText()));
             else
-                rs = Database.sqlCommand(String.format("select distinct film.film_id , title , release_year , length from film  , inventory , store where  film.film_id = inventory.film_id and inventory.store_id = store.store_id and (store_id = %s or store_id = %s) and film.title = %s", storeIds.get(0),storeIds.get(1) , txtId.getText()));
+                rs = Database.sqlCommand(String.format("select distinct film.film_id , title , release_year , length from film  , inventory , store where  film.film_id = inventory.film_id and inventory.store_id = store.store_id and (inventory.store_id = %s or inventory.store_id = %s) and film.title = \"%s\"", storeIds.get(0),storeIds.get(1) , txtId.getText()));
             for (int i = 0; i < rs.getMetaData().getColumnCount(); i++) {
                 final int j = i;
                 TableColumn col = new TableColumn(rs.getMetaData().getColumnName(i + 1));
@@ -180,9 +180,9 @@ import java.util.ArrayList;
             }
             ObservableList<ObservableList> data = FXCollections.observableArrayList();
             if (storeIds.size() == 1)
-                rs = Database.sqlCommand(String.format("select distinct film.film_id , title , release_year , length from film  , inventory , store where  film.film_id = inventory.film_id and inventory.store_id = store.store_id and store_id = %s and film.release_year = %s", storeIds.get(0), txtId.getText()));
+                rs = Database.sqlCommand(String.format("select distinct film.film_id , title , release_year , length from film  , inventory , store where  film.film_id = inventory.film_id and inventory.store_id = store.store_id and inventory.store_id = %s and film.release_year = %s", storeIds.get(0), txtId.getText()));
             else
-                rs = Database.sqlCommand(String.format("select distinct film.film_id , title , release_year , length from film  , inventory , store where  film.film_id = inventory.film_id and inventory.store_id = store.store_id and (store_id = %s or store_id = %s) and film.release_year = %s", storeIds.get(0), storeIds.get(1), txtId.getText()));
+                rs = Database.sqlCommand(String.format("select distinct film.film_id , title , release_year , length from film  , inventory , store where  film.film_id = inventory.film_id and inventory.store_id = store.store_id and (inventory.store_id = %s or inventory.store_id = %s) and film.release_year = %s", storeIds.get(0), storeIds.get(1), txtId.getText()));
             for (int i = 0; i < rs.getMetaData().getColumnCount(); i++) {
                 final int j = i;
                 TableColumn col = new TableColumn(rs.getMetaData().getColumnName(i + 1));
