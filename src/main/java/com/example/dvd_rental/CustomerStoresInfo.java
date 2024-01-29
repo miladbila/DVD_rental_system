@@ -24,7 +24,7 @@ public class CustomerStoresInfo {
         ResultSet rs = null;
         try {
             ObservableList<ObservableList> data = FXCollections.observableArrayList();
-            rs = Database.sqlCommand(String.format("select store.store_id , address.address from stores , address  where store.address_id = address.address_id)"));
+            rs = Database.sqlCommand(String.format("select store.store_id , address.address from store , address  where store.address_id = address.address_id"));
             for (int i = 0; i < rs.getMetaData().getColumnCount(); i++) {
                 final int j = i;
                 TableColumn col = new TableColumn(rs.getMetaData().getColumnName(i + 1));

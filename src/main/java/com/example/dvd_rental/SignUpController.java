@@ -65,7 +65,7 @@ public class SignUpController {
     private PasswordField txt_pass;
 
     @FXML
-    private PasswordField txt_store;
+    private TextField txt_store;
 
     @FXML
     private TextField txt_username;
@@ -98,19 +98,22 @@ public class SignUpController {
                 Alert alert = new Alert(Alert.AlertType.ERROR, "customer only can join 1 store", ButtonType.OK);
                 alert.showAndWait();
             } else {
-                Database.sqlCommand(String.format("insert into customer(first_name, last_name,address_id ,email, username, password, store_id) values (\"%s\",\"%s\",%s,\"%s\",\"%s\",\"%s\")",txt_name.getText(),txt_lastname.getText(),txt_address.getText(),txt_email.getText(),txt_username.getText(),txt_pass.getText(),storeIds[0]));
+                Database.sqlCommand(String.format("insert into customer(first_name, last_name,address_id ,email, username, password, store_id) values (\"%s\",\"%s\",%s,\"%s\",\"%s\",\"%s\",\"%s\")",txt_name.getText(),txt_lastname.getText(),txt_address.getText(),txt_email.getText(),txt_username.getText(),txt_pass.getText(),storeIds[0]));
             }
         }
     }
 
     @FXML
     void onAdmin(ActionEvent event) {
+        adminRadio.setSelected(true);
         CustomerRadio.setSelected(false);
     }
 
     @FXML
     void onCustomer(ActionEvent event) {
-        adminRadio.setSelected(true);
+        adminRadio.setSelected(false);
+        CustomerRadio.setSelected(true);
+
     }
 
 }

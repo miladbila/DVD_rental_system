@@ -7,7 +7,12 @@ public class Database {
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/sakila", "root", "bilabila");
         Statement s = connection.prepareStatement(sqlCommand);
-        return s.executeQuery(sqlCommand);
+        if (sqlCommand.split(" ")[0].toLowerCase().equals("select"))
+            return s.executeQuery(sqlCommand);
+        else {
+            s.execute(sqlCommand);
+            return null;
+        }
     }
 
 }
