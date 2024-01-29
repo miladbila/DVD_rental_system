@@ -20,7 +20,7 @@ import java.sql.SQLException;
     private TextField txtFilmId;
 
     @FXML
-    private TextField txtstoreId;
+    private TextField txtStoreId;
 
     @FXML
     void onDone(ActionEvent event) {
@@ -44,7 +44,7 @@ import java.sql.SQLException;
            ResultSet inventory_id =  Database.sqlCommand(String.format("select inventory_id from inventory where film_id = %s", txtFilmId.getText()));
            inventory_id.next();
            String inventories = inventory_id.getString("inventory_id");
-           ResultSet staff_id =  Database.sqlCommand(String.format("select manager_staff_id as staff_id from store where store_id = %s", txtstoreId.getText()));
+           ResultSet staff_id =  Database.sqlCommand(String.format("select manager_staff_id as staff_id from store where store_id = %s", txtStoreId.getText()));
            staff_id.next();
             String staffs = staff_id.getString("staff_is");
             Database.sqlCommand(String.format("insert rental (- , null , inventory_id , %s , null , staff_id " ,customerId));
