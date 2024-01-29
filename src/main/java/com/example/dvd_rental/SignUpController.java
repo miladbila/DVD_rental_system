@@ -1,21 +1,20 @@
 package com.example.dvd_rental;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Rectangle;
-import javafx.stage.Stage;
 
-import java.io.IOException;
+import java.sql.SQLException;
 
 public class SignUpController {
+
+    @FXML
+    private RadioButton CustomerRadio;
+
+    @FXML
+    private RadioButton adminRadio;
 
     @FXML
     private Button btn_save;
@@ -39,19 +38,19 @@ public class SignUpController {
     private Label lbl6;
 
     @FXML
-    private Label lbl7;
+    private Label lbl8;
 
     @FXML
-    private Label lbl8;
+    private Label lbl81;
+
+    @FXML
+    private Label lbl811;
 
     @FXML
     private Rectangle rec;
 
     @FXML
-    private TextField txt_bio;
-
-    @FXML
-    private TextField txt_birthdate;
+    private TextField txt_address;
 
     @FXML
     private TextField txt_email;
@@ -66,13 +65,52 @@ public class SignUpController {
     private PasswordField txt_pass;
 
     @FXML
-    private TextField txt_username;
+    private PasswordField txt_store;
 
     @FXML
-    void clickSave(MouseEvent event)
-    {
+    private TextField txt_username;
 
+    public void initialize(){
+        adminRadio.setSelected(true);
+    }
+    @FXML
+    void clickSave(MouseEvent event) throws SQLException, ClassNotFoundException {
+        if (adminRadio.isSelected()){
+            String[] storeIds = txt_store.getText().split(" ");
+            if (storeIds.length > 2 || storeIds.length < 1){
+                Alert alert = new Alert(Alert.AlertType.ERROR, "admin only can manage 2 stores", ButtonType.OK);
+                alert.showAndWait();
+            } else if (storeIds.length == 2){
+                try {
+                    Database.sqlCommand(String.format("insert into staff(first_name, last_name,address_id ,email, username, password) values (\"%s\",\"%s\",%s,\"%s\",\"%s\",\"%s\")",txt_name.getText(),txt_lastname.getText(),txt_address.getText(),txt_email.getText(),txt_username.getText(),txt_pass.getText()));
+                    Database.sqlCommand(String.format("update store set manager_staff_id = (SELECT staff_id FROM staff ORDER BY staff_id DESC LIMIT 1)  where store_id = %s",storeIds[0]));
+                    Database.sqlCommand(String.format("update store set manager_staff_id = (SELECT staff_id FROM staff ORDER BY staff_id DESC LIMIT 1)  where store_id = %s",storeIds[1]));
+                } catch (ClassNotFoundException | SQLException e) {
+                    throw new RuntimeException(e);
+                }
+            } else {
+                Database.sqlCommand(String.format("insert into staff(first_name, last_name,address_id ,email, username, password) values (\"%s\",\"%s\",%s,\"%s\",\"%s\",\"%s\")",txt_name.getText(),txt_lastname.getText(),txt_address.getText(),txt_email.getText(),txt_username.getText(),txt_pass.getText()));
+                Database.sqlCommand(String.format("update store set manager_staff_id = (SELECT staff_id FROM staff ORDER BY staff_id DESC LIMIT 1)  where store_id = %s",storeIds[0]));
+            }
+        } else {
+            String[] storeIds = txt_store.getText().split(" ");
+            if (storeIds.length != 1){
+                Alert alert = new Alert(Alert.AlertType.ERROR, "customer only can join 1 store", ButtonType.OK);
+                alert.showAndWait();
+            } else {
+                Database.sqlCommand(String.format("insert into customer(first_name, last_name,address_id ,email, username, password, store_id) values (\"%s\",\"%s\",%s,\"%s\",\"%s\",\"%s\")",txt_name.getText(),txt_lastname.getText(),txt_address.getText(),txt_email.getText(),txt_username.getText(),txt_pass.getText(),storeIds[0]));
+            }
+        }
+    }
 
+    @FXML
+    void onAdmin(ActionEvent event) {
+        CustomerRadio.setSelected(false);
+    }
+
+    @FXML
+    void onCustomer(ActionEvent event) {
+        adminRadio.setSelected(true);
     }
 
 }
