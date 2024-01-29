@@ -55,7 +55,7 @@ class CustomerActiveRents {
     @FXML
     void onBtnDone(ActionEvent event) {
         try {
-            Database.sqlCommand(String.format(" update rental set return_date = current_date  where customer_id = %s and rental_id = %s", customerId , txtrentalId));
+            Database.sqlCommand(String.format("update rental set return_date = current_date  where customer_id = %s and rental_id = %s", customerId , txtrentalId));
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         } catch (SQLException e) {
