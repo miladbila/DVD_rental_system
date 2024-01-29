@@ -74,7 +74,7 @@ public class CustomerController {
 
     @FXML
     void onRentalInfo(ActionEvent event) {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("customer.FilmInfo.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("admin.FilmInfo.fxml"));
         Parent root1 = null;
         try {
             root1 = (Parent) fxmlLoader.load();

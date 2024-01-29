@@ -65,7 +65,7 @@ public class AdminReserveRequests {
     @FXML
     void onAccept(ActionEvent event) {
         try {
-            Database.sqlCommand(String.format("update rental set rental_date = current_date() where rental_id = %s", id_text.getText()));
+            Database.sqlCommand(String.format("update rental set rental_date = now() where rental_id = %s", id_text.getText()));
         } catch (ClassNotFoundException | SQLException e) {
             throw new RuntimeException(e);
         }

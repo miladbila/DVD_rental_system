@@ -55,7 +55,20 @@ class CustomerActiveRents {
     @FXML
     void onBtnDone(ActionEvent event) {
         try {
-            Database.sqlCommand(String.format("update rental set return_date = current_date  where customer_id = %s and rental_id = %s", customerId , txtrentalId));
+            Database.sqlCommand(String.format("update rental set return_date = now()  where customer_id = %s and rental_id = %s", customerId , txtrentalId.getText()));
+            ResultSet rs = Database.sqlCommand(String.format("select TIMESTAMPDIFF(day,rental_date,return_date) as days from rental where rental_id = 1",txtrentalId.getText()));
+            rs.next();
+            int days = Integer.parseInt(rs.getString("days"));
+            int amount;
+            if (days > 14) {
+                amount = 28;
+                amount += (days - 14) * 3;
+                Database.sqlCommand(String.format("update customer set delay = delay + 1  where customer_id = %s", customerId , txtrentalId.getText()));
+            } else {
+                amount = days * 2;
+            }
+            Database.sqlCommand(String.format("insert into payment(customer_id, rental_id,amount,payment_date) values (%s,%s,%s,now())", customerId , txtrentalId.getText(),amount));
+
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         } catch (SQLException e) {
