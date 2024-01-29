@@ -129,7 +129,6 @@ public class AdminController {
     }
 
     public void onFilmlists(ActionEvent event) {
-        AdminFilmList.staffId = staffId;
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("admin.filmList.fxml"));
         Parent root1 = null;
         try {

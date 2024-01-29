@@ -16,7 +16,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class AdminFilmList {
-    static String staffId;
 
     @FXML
     private TableView tableview;
