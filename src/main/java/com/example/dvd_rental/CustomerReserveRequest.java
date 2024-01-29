@@ -46,8 +46,8 @@ import java.sql.SQLException;
            String inventories = inventory_id.getString("inventory_id");
            ResultSet staff_id =  Database.sqlCommand(String.format("select manager_staff_id as staff_id from store where store_id = %s", txtStoreId.getText()));
            staff_id.next();
-            String staffs = staff_id.getString("staff_is");
-            Database.sqlCommand(String.format("insert rental (- , null , inventory_id , %s , null , staff_id " ,customerId));
+            String staffs = staff_id.getString("staff_id");
+            Database.sqlCommand(String.format("insert into rental (inventory_id,customer_id,staff_id) values (%s,%s,%s)" ,inventories,customerId,staffs));
 
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);

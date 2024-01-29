@@ -37,7 +37,7 @@ public class CustomerEditProfile {
     @FXML
     void onBtnEmail(ActionEvent event) {
         try {
-            Database.sqlCommand(String.format("update customer set email = %s where customer_id = %s", txtNew.getText() , customerId));
+            Database.sqlCommand(String.format("update customer set email = \"%s\" where customer_id = %s", txtNew.getText() , customerId));
         } catch (ClassNotFoundException | SQLException e) {
             throw new RuntimeException(e);
         }
@@ -46,7 +46,7 @@ public class CustomerEditProfile {
     @FXML
     void onBtnFirstName(ActionEvent event) {
         try {
-            Database.sqlCommand(String.format("update customer set first_name = %s where where customer_id = %s", txtNew.getText(), customerId));
+            Database.sqlCommand(String.format("update customer set first_name = \"%s\" where where customer_id = %s", txtNew.getText(), customerId));
         } catch (ClassNotFoundException | SQLException e) {
             throw new RuntimeException(e);
         }
@@ -55,7 +55,7 @@ public class CustomerEditProfile {
     @FXML
     void onBtnLastName(ActionEvent event) {
         try {
-            Database.sqlCommand(String.format("update customer set last_name = %s where customer_id = %s", txtNew.getText() , customerId));
+            Database.sqlCommand(String.format("update customer set last_name = \"%s\" where customer_id = %s", txtNew.getText() , customerId));
         } catch (ClassNotFoundException | SQLException e) {
             throw new RuntimeException(e);
         }

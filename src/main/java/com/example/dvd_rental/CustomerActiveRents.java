@@ -16,7 +16,7 @@ import javafx.util.Callback;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-class CustomerActiveRents {
+public class CustomerActiveRents {
 
     @FXML
     private Button btnDone;
@@ -32,7 +32,7 @@ class CustomerActiveRents {
         ResultSet rs = null;
         try {
             ObservableList<ObservableList> data = FXCollections.observableArrayList();
-            rs = Database.sqlCommand(String.format("select *  from rental where customer_id = %s and return_date = null", customerId));
+            rs = Database.sqlCommand(String.format("select * from rental where customer_id = %s and return_date = null", customerId));
             for (int i = 0; i < rs.getMetaData().getColumnCount(); i++) {
                 final int j = i;
                 TableColumn col = new TableColumn(rs.getMetaData().getColumnName(i + 1));

@@ -24,7 +24,7 @@ public class CustomerMyFilms {
         ResultSet rs = null;
         try {
             ObservableList<ObservableList> data = FXCollections.observableArrayList();
-            rs = Database.sqlCommand(String.format("select return_date , rental_date , title, if(rental_date = null , \"returned\" ,TIMESTAMPDIFF(day,now(), DATE_ADD(rental_date, interval 14 day))) as remind_day from rental,inventory,film where customer_id = 1 and rental.inventory_id = inventory.inventory_id and inventory.film_id = film.film_id", customerId));
+            rs = Database.sqlCommand(String.format("select return_date , rental_date , title, if(rental_date = null , \"returned\" ,TIMESTAMPDIFF(day,now(), DATE_ADD(rental_date, interval 14 day))) as remind_day from rental,inventory,film where customer_id = %s and rental.inventory_id = inventory.inventory_id and inventory.film_id = film.film_id", customerId));
             for (int i = 0; i < rs.getMetaData().getColumnCount(); i++) {
                 final int j = i;
                 TableColumn col = new TableColumn(rs.getMetaData().getColumnName(i + 1));
