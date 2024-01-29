@@ -3,14 +3,15 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="700.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dvd_rental.SignUpController">
+<AnchorPane prefHeight="700.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dvd_rental.SignUpController">
    <children>
+      <Rectangle fx:id="rec" arcHeight="5.0" arcWidth="5.0" fill="#edeff000" height="672.0" layoutX="15.0" layoutY="15.0" stroke="BLACK" strokeType="INSIDE" width="571.0" />
       <Label fx:id="lbl1" layoutX="37.0" layoutY="42.0" prefHeight="24.0" prefWidth="258.0" text="-Fill in the blanks .">
          <font>
             <Font name="System Bold" size="18.0" />
@@ -36,33 +37,39 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="lbl6" layoutX="37.0" layoutY="333.0" text="Birthdate">
+      <Label fx:id="lbl6" layoutX="37.0" layoutY="333.0" text="Address ID :">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="lbl8" layoutX="31.0" layoutY="454.0" text="Password :">
+      <Label fx:id="lbl8" layoutX="37.0" layoutY="387.0" text="Password :">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="lbl7" layoutX="37.0" layoutY="391.0" text="Bio :">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <Rectangle fx:id="rec" arcHeight="5.0" arcWidth="5.0" fill="#edeff000" height="672.0" layoutX="15.0" layoutY="15.0" stroke="BLACK" strokeType="INSIDE" width="373.0" />
-      <TextField fx:id="txt_username" layoutX="154.0" layoutY="111.0" prefHeight="27.0" prefWidth="208.0" promptText="like Par23" />
-      <TextField fx:id="txt_name" layoutX="154.0" layoutY="167.0" prefHeight="26.0" prefWidth="208.0" promptText="like Parni" />
-      <TextField fx:id="txt_lastname" layoutX="154.0" layoutY="216.0" prefHeight="26.0" prefWidth="208.0" promptText="like Ahmadi" />
-      <TextField fx:id="txt_email" layoutX="154.0" layoutY="274.0" prefHeight="26.0" prefWidth="208.0" promptText="like aa@dd" />
-      <TextField fx:id="txt_birthdate" layoutX="154.0" layoutY="331.0" prefHeight="26.0" prefWidth="208.0" promptText="like 2002-03--4" />
-      <TextField fx:id="txt_bio" layoutX="154.0" layoutY="389.0" prefHeight="26.0" prefWidth="208.0" promptText="like Hiiii" />
-      <PasswordField fx:id="txt_pass" layoutX="154.0" layoutY="451.0" prefHeight="26.0" prefWidth="208.0" promptText="like fgf565@@**hh^" />
-      <Button fx:id="btn_save" layoutX="232.0" layoutY="581.0" mnemonicParsing="false" onMouseClicked="#clickSave" prefHeight="42.0" prefWidth="103.0" text="Save">
+      <TextField fx:id="txt_username" layoutX="180.0" layoutY="111.0" prefHeight="27.0" prefWidth="208.0" promptText="like Par23" />
+      <TextField fx:id="txt_name" layoutX="180.0" layoutY="166.0" prefHeight="26.0" prefWidth="208.0" promptText="like Parni" />
+      <TextField fx:id="txt_lastname" layoutX="180.0" layoutY="216.0" prefHeight="26.0" prefWidth="208.0" promptText="like Ahmadi" />
+      <TextField fx:id="txt_email" layoutX="180.0" layoutY="273.0" prefHeight="26.0" prefWidth="208.0" promptText="like aa@dd" />
+      <TextField fx:id="txt_address" layoutX="180.0" layoutY="330.0" prefHeight="26.0" prefWidth="208.0" promptText="like 1" />
+      <PasswordField fx:id="txt_pass" layoutX="180.0" layoutY="384.0" prefHeight="26.0" prefWidth="208.0" promptText="like fgf565@@**hh^" />
+      <Button fx:id="btn_save" layoutX="243.0" layoutY="630.0" mnemonicParsing="false" onMouseClicked="#clickSave" prefHeight="42.0" prefWidth="103.0" text="Save">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
+      <Label fx:id="lbl81" layoutX="37.0" layoutY="448.0" text="role :">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <RadioButton fx:id="adminRadio" layoutX="180.0" layoutY="449.0" mnemonicParsing="false" onAction="#onAdmin" text="Admin" />
+      <RadioButton fx:id="CustomerRadio" layoutX="266.0" layoutY="449.0" mnemonicParsing="false" onAction="#onCustomer" text="Customer" />
+      <Label fx:id="lbl811" layoutX="31.0" layoutY="511.0" text="Store Id;">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txt_store" layoutX="180.0" layoutY="508.0" prefHeight="26.0" prefWidth="208.0" promptText="1 2" />
    </children>
 </AnchorPane>

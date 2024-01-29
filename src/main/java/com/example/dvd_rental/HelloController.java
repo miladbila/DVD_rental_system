@@ -34,7 +34,7 @@ public class HelloController {
         if (customerRadio.isSelected()) {
             ResultSet result;
             try {
-                result = Database.sqlCommand(String.format("select customer_id from customer where username == %s and password == %s", txt_AccountName.getText(), txt_Password.getText()));
+                result = Database.sqlCommand(String.format("select customer_id from customer where username = \"%s\" and password = \"%s\"", txt_AccountName.getText(), txt_Password.getText()));
                 if (!result.next())
                     alert.showAndWait();
                 else {

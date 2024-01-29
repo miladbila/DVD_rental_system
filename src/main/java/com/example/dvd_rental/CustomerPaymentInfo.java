@@ -27,7 +27,7 @@ public class CustomerPaymentInfo {
         ResultSet rs = null;
         try {
             ObservableList<ObservableList> data = FXCollections.observableArrayList();
-            rs = Database.sqlCommand(String.format(" select customer.first_name , customer.last_name , payment.payment_id , payment.amount from customer , payment where customer.customer_id = payment.customer_id and customer.customer_id= %s", customerId));
+            rs = Database.sqlCommand(String.format("select customer.first_name , customer.last_name , payment.payment_id , payment.amount from customer , payment where customer.customer_id = payment.customer_id and customer.customer_id= %s", customerId));
             for (int i = 0; i < rs.getMetaData().getColumnCount(); i++) {
                 final int j = i;
                 TableColumn col = new TableColumn(rs.getMetaData().getColumnName(i + 1));
