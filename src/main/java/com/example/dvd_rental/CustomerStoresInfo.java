@@ -13,7 +13,7 @@ import javafx.util.Callback;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-class CustomerStoresInfo {
+public class CustomerStoresInfo {
 
     @FXML
     private Label lbllist;
